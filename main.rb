@@ -7,5 +7,7 @@ require_relative 'lib/engine'
 include Rubygame
 include Centron
 
+$VERSION = "rCentron 0.0.9"
+
 engine = Centron::Engine.new
 engine.run
