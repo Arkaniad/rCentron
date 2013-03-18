@@ -11,10 +11,6 @@ module Centron
       @log.info "Loading fonts..."
       @ttf = TTF.new("res/font/ttf-droidsans.ttf", 14)
 
-      @log.info "Initializing screen..."
-      @screen = Screen.new([800, 600],0,[Rubygame::HWSURFACE,Rubygame::DOUBLEBUF])
-      @screen.title = $VERSION
-
       @log.info "Initializing event queue..."
       @queue = EventQueue.new()
 
@@ -26,6 +22,10 @@ module Centron
       @log.info "Calibrating timer..."
       @clock.calibrate()
       @log.info "Granularity: %d ms"%[@clock.granularity]
+
+      @log.info "Initializing screen..."
+      @screen = Screen.new([800, 600],0,[Rubygame::HWSURFACE,Rubygame::DOUBLEBUF])
+      @screen.title = $VERSION
 
       @log.info "Initializing starfield..."
       @stars = []
@@ -53,6 +53,7 @@ module Centron
         @queue.each do |ev|
           case ev
             when QuitEvent
+            @log.info "Quitting."
             Rubygame.quit
             return
           end
