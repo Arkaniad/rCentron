@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+#
 require "rubygame"
 require_relative 'lib/star'
 require_relative 'lib/log'
